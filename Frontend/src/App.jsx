@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 import {
   LayoutDashboard,
@@ -122,7 +123,7 @@ function App() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/users/login",
+        "https://venuevista-2.onrender.com/api/users/login",
         {
           method: "POST",
           headers: {
@@ -187,7 +188,7 @@ function App() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/users/register",
+        "https://venuevista-2.onrender.com/api/users/register",
         {
           method: "POST",
           headers: {
@@ -243,7 +244,7 @@ function App() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/events"
+        "https://venuevista-2.onrender.com/api/events"
       );
 
       if (response.ok) {
@@ -272,15 +273,15 @@ function App() {
         ========================= */
 
         const totalResponse = await fetch(
-          "http://localhost:8081/api/analytics/total-seats"
+          "https://venuevista-2.onrender.com/api/analytics/total-seats"
         );
 
         const bookedResponse = await fetch(
-          "http://localhost:8081/api/analytics/booked-seats"
+          "https://venuevista-2.onrender.com/api/analytics/booked-seats"
         );
 
         const availableResponse = await fetch(
-          "http://localhost:8081/api/analytics/available-seats"
+          "https://venuevista-2.onrender.com/api/analytics/available-seats"
         );
 
         if (
@@ -307,7 +308,7 @@ function App() {
         for (const event of data) {
 
           const revenueResponse = await fetch(
-            `http://localhost:8081/api/analytics/revenue/${event.eventId}`
+            `https://venuevista-2.onrender.com/api/analytics/revenue/${event.eventId}`
           );
 
           if (revenueResponse.ok) {
@@ -346,7 +347,7 @@ function App() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/seats"
+        "https://venuevista-2.onrender.com/api/seats"
       );
 
       if (response.ok) {
@@ -375,7 +376,7 @@ function App() {
 const fetchSeatsForEvent = async (eventId) => {
   try {
     const response = await fetch(
-      `http://localhost:8081/api/event-seats/event/${eventId}`
+      `https://venuevista-2.onrender.com/api/event-seats/event/${eventId}`
     );
 
     if (response.ok) {
@@ -402,7 +403,7 @@ const fetchSeatsForEvent = async (eventId) => {
     try {
 
       const response = await fetch(
-        `http://localhost:8081/api/event-seats/event/${eventId}`
+        `https://venuevista-2.onrender.com/api/event-seats/event/${eventId}`
       );
 
       if (response.ok) {
@@ -453,7 +454,7 @@ const fetchSeatsForEvent = async (eventId) => {
       }
 
       const response = await fetch(
-        `http://localhost:8081/api/bookings/user/${userId}`
+        `https://venuevista-2.onrender.com/api/bookings/user/${userId}`
       );
 
       if (response.ok) {
@@ -557,7 +558,7 @@ const fetchSeatsForEvent = async (eventId) => {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/bookings"
+        "https://venuevista-2.onrender.com/api/bookings"
       );
 
       if (response.ok) {
@@ -597,7 +598,7 @@ const fetchSeatsForEvent = async (eventId) => {
 
                 const userResponse =
                   await fetch(
-                    `http://localhost:8081/api/users/${userId}`
+                    `https://venuevista-2.onrender.com/api/users/${userId}`
                   );
 
                 if (userResponse.ok) {
@@ -832,7 +833,7 @@ const fetchSeatsForEvent = async (eventId) => {
       }
 
       const response = await fetch(
-        `http://localhost:8081/api/users/${userId}`
+        `https://venuevista-2.onrender.com/api/users/${userId}`
       );
 
       if (response.ok) {
@@ -870,7 +871,7 @@ const fetchSeatsForEvent = async (eventId) => {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/events",
+        "https://venuevista-2.onrender.com/api/events",
         {
           method: "POST",
           headers: {
@@ -943,7 +944,7 @@ const fetchSeatsForEvent = async (eventId) => {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/seats",
+        "https://venuevista-2.onrender.com/api/seats",
         {
           method: "POST",
           headers: {
@@ -1168,7 +1169,7 @@ const fetchSeatsForEvent = async (eventId) => {
       );
 
       const response = await fetch(
-        "http://localhost:8081/api/bookings",
+        "https://venuevista-2.onrender.com/api/bookings",
         {
           method: "POST",
           headers: {
@@ -1300,7 +1301,7 @@ const fetchSeatsForEvent = async (eventId) => {
  const updateSeatStatus = async (seatId, status) => {
    try {
      const response = await fetch(
-       `http://localhost:8081/api/seats/${seatId}?status=${status}`,
+       `https://venuevista-2.onrender.com/api/seats/${seatId}?status=${status}`,
        {
          method: "PUT",
        }
