@@ -19,19 +19,14 @@ public interface EventSeatRepository
                 es.price,
                 vs.seat_number,
                 vs.seat_type,
-                sr.row_name,
-                s.section_name
+                CAST(vs.row_id AS CHAR),
+                'General'
             FROM event_seats es
-            JOIN venue_seats vs
+            INNER JOIN venue_seats vs
                 ON es.seat_id = vs.seat_id
-            JOIN seat_rows sr
-                ON vs.row_id = sr.row_id
-            JOIN sections s
-                ON sr.section_id = s.section_id
             WHERE es.event_id = :eventId
             ORDER BY
-                s.section_name,
-                sr.row_name,
+                vs.row_id,
                 vs.seat_position
             """,
             nativeQuery = true)
